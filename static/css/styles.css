@@ -14,9 +14,9 @@ body, html {
     bottom: 0;
     width: 65%;
 }
-img{
+.imgs{
     height: 100%;
-    width: 70%;
+    width: auto;
 }
 .frm{
    position: absolute;
@@ -26,7 +26,21 @@ img{
 }
 .frms{
     position: absolute;
-    right: 10%;
+    right: 7%;
     top: 1%;
     margin: 0;
+    width: 40%;
+}
+.img{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #dddad9;
+    border: solid;
+}
+
+.pic{
+    height: 100%;
+    width: 45%;
 }
