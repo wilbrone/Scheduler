@@ -1,0 +1,32 @@
+body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    height: auto;
+    width: 100%;
+}
+.landing{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 65%;
+}
+img{
+    height: 100%;
+    width: 70%;
+}
+.frm{
+   position: absolute;
+   right: 10%;
+   bottom: 20%;
+   width: 40%;
+}
+.frms{
+    position: absolute;
+    right: 10%;
+    top: 1%;
+    margin: 0;
+}

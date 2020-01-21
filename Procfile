@@ -1,0 +1,1 @@
+web: gunicorn schedules.wsgi --log-file -
