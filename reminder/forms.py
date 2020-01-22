@@ -24,3 +24,21 @@ class UpdateUserProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['name', 'bio', 'image']
+
+
+class NewEventForm(forms.ModelForm):
+    class Meta:
+        model = Event
+        fields = ['title','date','time']
+        
+
+    
+
+
+    # title = models.CharField(max_length=100)
+    # email = models.EmailField()
+    # posted = models.DateTimeField(auto_now_add=True)
+    # date = models.DateField()
+    # time = models.TimeField()
+    # color = models.CharField(max_length=10)
+    # user=models.ForeignKey(User,on_delete=models.CASCADE)

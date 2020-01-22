@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 {% load static %}
 
 {% block content %}
 {{block.super}}
+
     {% for e in events %}
         <p style="background-color: #{{ e.color }}">{{ e.title }}</p>
         <p>{{ e.date }}</p>
@@ -13,5 +15,38 @@
             no events scheduled for today
         </p>
     {% endfor %}
+    
+    <!-- Button trigger modal -->
+    <button class="btn  btn-success" data-toggle="modal" data-target="#exampleModal" style="background-color:#333a40;bottom:3%;right:3%;border-radius: 50%;border: none;padding: 20px;text-align: center;text-decoration: none;display: inline-block;margin: 4px 2px; position: fixed;">
+    <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
+    </button>
+
+    <!-- Modal for Profile update-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header" style="align:center;">
+                <h5 class="modal-title" id="exampleModalLabel">New Event</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        {{ e_form|crispy }}
+                    </fieldset>
+                    <div class="modal-footer">
+                        <div class="form-group">
+                            <button class="btn btn-outline-info" type="submit">Update Info</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 

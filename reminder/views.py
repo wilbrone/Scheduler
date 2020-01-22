@@ -34,8 +34,27 @@ def signup(request):
 @login_required(login_url='login')
 def index(request):
     events = Event.objects.all()
+    current_user = request.user
+
+    if request.method == 'POST':
+        e_form = NewEventForm(request.POST, request.FILES)
+
+        if e_form.is_valid():
+            post = e_form.save(commit=False)
+            post.user = request.user.profile
+            post.email = request.user.email
+            post.color = "%06x" % random.randint(0, 0xFFFFFF)
+            post.save()
+            return redirect ('index')
+        
+    else:
+        e_form = NewEventForm(request.POST, request.FILES)
+
+    context = {
+        'e_form':e_form
+    }
     color = "%06x" % random.randint(0, 0xFFFFFF)
-    return render(request, 'all-reminders/index.html', {"events":events})
+    return render(request, 'all-reminders/index.html', locals())
 
 
 @login_required(login_url='login')
@@ -63,3 +82,8 @@ def profile(request):
     }
 
     return render(request, 'registration/profile.html',locals())
+
+
+@login_required(login_url='login')
+def add_event(request):
+    return render(request, 'all-reminders/index.html' )

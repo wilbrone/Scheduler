@@ -42,7 +42,7 @@ class Event(models.Model):
     date = models.DateField()
     time = models.TimeField()
     color = models.CharField(max_length=10)
-    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    user=models.ForeignKey(Profile,on_delete=models.CASCADE)
 
     def create_event(self):
         self.save()
