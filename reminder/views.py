@@ -32,3 +32,30 @@ def signup(request):
 @login_required(login_url='login')
 def index(request):
     return render(request, 'all-reminders/index.html')
+
+
+@login_required(login_url='login')
+def profile(request):
+    current_user = request.user
+    profile = Profile.objects.all()
+
+    if request.method == 'POST':
+        u_form = UpdateUserForm(request.POST,instance=request.user)
+        p_form = UpdateUserProfileForm(request.POST, request.FILES,instance=request.user.profile)
+
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            
+            return render(request,'registration/profile.html')
+    else:
+        u_form = UpdateUserForm(instance=request.user)
+        p_form = UpdateUserProfileForm(instance=request.user.profile)
+
+
+    context = {
+        'u_form':u_form,
+        'p_form':p_form
+    }
+
+    return render(request, 'registration/profile.html',locals())
