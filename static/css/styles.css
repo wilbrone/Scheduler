@@ -57,14 +57,14 @@ body, html {
     margin: auto;
     text-align: center;
     margin: 0;
-  }
+}
   
-  .title {
+.title {
     color: grey;
     font-size: 18px;
-  }
+}
   
-  .prof {
+.prof {
     border: none;
     outline: 0;
     display: inline-block;
@@ -75,14 +75,31 @@ body, html {
     cursor: pointer;
     width: 100%;
     font-size: 14px;
-  }
-  
-  a {
+}
+
+a {
     text-decoration: none;
     font-size: 22px;
     color: black;
-  }
-  
-  button:hover, a:hover {
+}
+
+button:hover, a:hover {
     opacity: 0.7;
-  }
+}
+
+.button {
+     /* Green */
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: absolute;
+    top: 45%;
+    right: 67%;
+}
+.button5{ border-radius: 50%; }

@@ -7,10 +7,10 @@ from django.dispatch import receiver
 # Create your models here.
 
 class Profile(models.Model):
-    name=models.CharField(max_length=60)
-    bio=models.CharField(max_length=300)
+    name = models.CharField(max_length=60)
+    bio = models.CharField(max_length=300)
     user = models.OneToOneField(User,on_delete=models.CASCADE)
-    image=models.ImageField(default='default.jpg', upload_to='profile_pics')
+    image = models.ImageField(default='default.jpg', upload_to='profile_pics')
 
     def __str__(self):
         return f'{self.user.username} Profile'
@@ -31,3 +31,13 @@ class Profile(models.Model):
     def delete_profile(self):
         self.delete()
 
+
+class Event(models.Model):
+    title = models.CharField()
+    email = models.EmailField()
+    date = models.DateField()
+    time = models.TimeField()
+
+    def create_business(self):
+        self.save()
+    
