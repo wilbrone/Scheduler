@@ -3,6 +3,15 @@
 
 {% block content %}
 {{block.super}}
-    
+    {% for e in events %}
+        <p style="background-color: #{{ e.color }}">{{ e.title }}</p>
+        <p>{{ e.date }}</p>
+        <p>{{ e.time }}</p>
+        <p>{{ e.email }}</p>
+    {% empty %}
+        <p>
+            no events scheduled for today
+        </p>
+    {% endfor %}
 {% endblock %}
 

@@ -1,3 +1,5 @@
+import random
+
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponseRedirect, JsonResponse
 from django.contrib.auth.decorators import login_required
@@ -31,7 +33,9 @@ def signup(request):
 
 @login_required(login_url='login')
 def index(request):
-    return render(request, 'all-reminders/index.html')
+    events = Event.objects.all()
+    color = "%06x" % random.randint(0, 0xFFFFFF)
+    return render(request, 'all-reminders/index.html', {"events":events})
 
 
 @login_required(login_url='login')
