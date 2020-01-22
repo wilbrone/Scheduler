@@ -33,11 +33,17 @@ class Profile(models.Model):
 
 
 class Event(models.Model):
-    title = models.CharField()
+    title = models.CharField(max_length=100)
     email = models.EmailField()
     date = models.DateField()
     time = models.TimeField()
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
 
-    def create_business(self):
+    def create_event(self):
         self.save()
     
+    def delete_event(self):
+        self.delete()
+
+    def update_event(self):
+        self.update()
