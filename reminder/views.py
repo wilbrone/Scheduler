@@ -51,7 +51,7 @@ def index(request):
         e_form = NewEventForm(request.POST, request.FILES)
 
     context = {
-        'e_form':e_form
+        'e_form':e_form,
     }
     color = "%06x" % random.randint(0, 0xFFFFFF)
     return render(request, 'all-reminders/index.html', locals())
@@ -85,5 +85,5 @@ def profile(request):
 
 
 @login_required(login_url='login')
-def add_event(request):
-    return render(request, 'all-reminders/index.html' )
+def single_event(request, id):
+    return render(request, 'all-reminders/details.html' )

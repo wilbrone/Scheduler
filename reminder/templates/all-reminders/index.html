@@ -6,7 +6,9 @@
 {{block.super}}
 
     {% for e in events %}
-        <p style="background-color: #{{ e.color }}">{{ e.title }}</p>
+        <a href="{% url 'detailssa' %}">
+            <p style="background-color: #{{ e.color }}">{{ e.title }}</p>
+        </a>
         <p>{{ e.date }}</p>
         <p>{{ e.time }}</p>
         <p>{{ e.email }}</p>
