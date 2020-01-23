@@ -43,9 +43,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'bootstrap4',
     'rest_framework',
     'crispy_forms',
+
 ]
 
 REST_FRAMEWORK = {
@@ -96,6 +98,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'schedules.wsgi.application'
 
+GOOGLE_OAUTH2_CLIENT_SECRETS_JSON = 'client_secret.json'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
