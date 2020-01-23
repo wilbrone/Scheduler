@@ -37,10 +37,13 @@ class Profile(models.Model):
 
 class Event(models.Model):
     title = models.CharField(max_length=100)
+    location = models.CharField(max_length=100)
     email = models.EmailField()
     posted = models.DateTimeField(auto_now_add=True)
     date = models.DateField()
+    end_date = models.DateField()
     time = models.TimeField()
+    end_time = models.TimeField()
     color = models.CharField(max_length=10)
     user=models.ForeignKey(Profile,on_delete=models.CASCADE)
 

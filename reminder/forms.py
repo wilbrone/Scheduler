@@ -32,7 +32,7 @@ class NewEventForm(forms.ModelForm):
     time = forms.TimeField(help_text='format, hr:min:sec')
     class Meta:
         model = Event
-        fields = ['title','date','time']
+        fields = ['title','date','time', 'location', 'end_date']
         
 
     

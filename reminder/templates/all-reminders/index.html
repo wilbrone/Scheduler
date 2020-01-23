@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
+{% load project_events_tags %}
 {% load crispy_forms_tags %}
-{% load ... %}
 {% load static %}
 
 {% block content %}
@@ -14,7 +14,7 @@
         <p>{{ e.time }}</p>
         <p>{{ e.email }}</p>
         {% csrf_token %}
-        <a href="{{ event|google_calendarize }}">+ Add to Google Calendar</a>
+        <a href="{{ e |google_calendarize }}">+ Add to Google Calendar</a>
     {% empty %}
         <p>
             no events scheduled for today
