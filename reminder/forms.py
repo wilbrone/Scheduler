@@ -27,6 +27,9 @@ class UpdateUserProfileForm(forms.ModelForm):
 
 
 class NewEventForm(forms.ModelForm):
+    
+    date = forms.DateField(help_text='format, YY-mm-d')
+    time = forms.TimeField(help_text='format, hr:min:sec')
     class Meta:
         model = Event
         fields = ['title','date','time']

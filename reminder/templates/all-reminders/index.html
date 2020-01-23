@@ -6,7 +6,7 @@
 {{block.super}}
 
     {% for e in events %}
-        <a href="{% url 'detailssa' %}">
+        <a href="{% url 'details' e.id %}">
             <p style="background-color: #{{ e.color }}">{{ e.title }}</p>
         </a>
         <p>{{ e.date }}</p>
