@@ -60,9 +60,8 @@ def signup(request):
 
 @login_required(login_url='login')
 def index(request):
-    events = Event.objects.all()
-    current_user = request.user
-
+    events = Event.objects.filter(user = request.user.profile)
+    current_user = request.user.profile
     if request.method == 'POST':
         e_form = NewEventForm(request.POST, request.FILES)
 
@@ -153,4 +152,5 @@ def profile(request):
 
 @login_required(login_url='login')
 def single_event(request, id):
-    return render(request, 'all-reminders/details.html' )
+    event = Event.objects.filter(id = id)
+    return render(request, 'all-reminders/details.html', {'event':event})

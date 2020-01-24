@@ -7,14 +7,25 @@
 {{block.super}}
 
     {% for e in events %}
-        <a href="{% url 'details' e.id %}">
+        <div class="card">
+            <img src="{{ user.profile.image.url }}" alt="John" style="width:100%">
+            <h1>{{ user.profile.name }}</h1>
+            <p class="title">{{user.email}}</p>
+            <p>{{user.profile.bio}}</p>
+            <a href="#"><i class="fa fa-dribbble"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <p><button class="prof">Contact</button></p>
+        </div>
+        {% comment %} <a href="{% url 'details' e.id %}">
             <p style="background-color: #{{ e.color }}">{{ e.title }}</p>
         </a>
         <p>{{ e.date }}</p>
         <p>{{ e.time }}</p>
         <p>{{ e.email }}</p>
         {% csrf_token %}
-        <a href="{{ e |google_calendarize }}">+ Add to Google Calendar</a>
+        <a href="{{ e |google_calendarize }}">+ Add to Google Calendar</a> {% endcomment %}
     {% empty %}
         <p>
             no events scheduled for today
