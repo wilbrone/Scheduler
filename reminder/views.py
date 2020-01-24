@@ -26,15 +26,16 @@ import os.path
 from googleapiclient.discovery import build
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
+from oauth2client.client import flow_from_clientsecrets
 
 from .forms import *
 from .models import *
 
 
 
-SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
+# SCOPES = ['https://www.googleapis.com/auth/calendar.readonly']
 
-CLIENT_SECRETS = os.path.join(os.path.dirname(__file__), '..', 'client_secret.json')
+# CLIENT_SECRETS = os.path.join(os.path.dirname(__file__), '..', 'client_secret.json')
 
 # FLOW = flow_from_clientsecrets(
 #     CLIENT_SECRETS,
@@ -85,9 +86,9 @@ def index(request):
     Prints the start and name of the next 10 events on the user's calendar.
     """
     # creds = None
-    # The file token.pickle stores the user's access and refresh tokens, and is
-    # created automatically when the authorization flow completes for the first
-    # time.
+    # # The file token.pickle stores the user's access and refresh tokens, and is
+    # # created automatically when the authorization flow completes for the first
+    # # time.
     # if os.path.exists('token.pickle'):
     #     with open('token.pickle', 'rb') as token:
     #         creds = pickle.load(token)
@@ -120,6 +121,7 @@ def index(request):
     #     print(start, even['summary'])
 # ***********************************************************************************************
 
+    
     color = "%06x" % random.randint(0, 0xFFFFFF)
     return render(request, 'all-reminders/index.html', locals())
 

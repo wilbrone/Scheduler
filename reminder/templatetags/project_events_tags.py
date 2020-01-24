@@ -10,7 +10,7 @@ register = template.Library()
 @register.filter()
 def google_calendarize(event):
     st = event.time
-    en = event.end_time and event.end_time or event.time
+    en = event.time 
     tfmt = '%Y%m%dT000000'
 
     dates = '%s%s%s' % (st.strftime(tfmt), '%2F', en.strftime(tfmt))

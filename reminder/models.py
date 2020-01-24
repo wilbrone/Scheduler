@@ -41,9 +41,9 @@ class Event(models.Model):
     email = models.EmailField()
     posted = models.DateTimeField(auto_now_add=True)
     date = models.DateField()
-    end_date = models.DateField()
+    end_date = models.DateField(null=True)
     time = models.TimeField()
-    end_time = models.TimeField()
+    end_time = models.TimeField(null=True)
     color = models.CharField(max_length=10)
     user=models.ForeignKey(Profile,on_delete=models.CASCADE)
 
